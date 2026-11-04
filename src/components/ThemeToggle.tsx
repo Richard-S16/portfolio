@@ -1,48 +1,62 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect } from "react";
 
-export const ThemeToggle: React.FC = () => {
-  const [isDark, setIsDark] = useState(false);
-
+export function ThemeToggle({ label }: { label: string }) {
   useEffect(() => {
-    // Check local storage or system preference
-    const savedTheme = localStorage.getItem("theme");
-    const systemPrefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-
-    if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
-      setIsDark(true);
-      document.documentElement.classList.add("dark");
-    } else {
-      setIsDark(false);
-      document.documentElement.classList.remove("dark");
+    const query = window.matchMedia("(prefers-color-scheme: dark)");
+    function sync() {
+      let saved: string | null = null;
+      try {
+        saved = localStorage.getItem("theme");
+      } catch {
+        /* System preference works without storage. */
+      }
+      if (saved !== "light" && saved !== "dark")
+        document.documentElement.dataset.theme = query.matches
+          ? "dark"
+          : "light";
     }
+    sync();
+    query.addEventListener("change", sync);
+    window.addEventListener("storage", sync);
+    return () => {
+      query.removeEventListener("change", sync);
+      window.removeEventListener("storage", sync);
+    };
   }, []);
 
-  const toggleTheme = () => {
-    if (isDark) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setIsDark(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setIsDark(true);
+  function toggle() {
+    const next =
+      document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try {
+      localStorage.setItem("theme", next);
+    } catch {
+      /* The current tab still updates if storage is unavailable. */
     }
-  };
+  }
 
   return (
-    <motion.button
-      onClick={toggleTheme}
-      className="fixed top-4 right-4 z-50 p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow-lg hidden"
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-      aria-label="Toggle Dark Mode"
+    <button
+      type="button"
+      className="theme-toggle"
+      aria-label={label}
+      title={label}
+      onClick={toggle}
     >
-      {isDark ? "🌙" : "☀️"}
-    </motion.button>
+      <svg
+        aria-hidden="true"
+        width="19"
+        height="19"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <circle cx="12" cy="12" r="7.5" />
+        <path d="M12 4.5v15a7.5 7.5 0 0 0 0-15Z" fill="currentColor" />
+      </svg>
+    </button>
   );
-};
+}

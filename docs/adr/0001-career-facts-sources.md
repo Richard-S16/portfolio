@@ -1,0 +1,3 @@
+# Career facts come only from the Resume and LinkedIn; no unsupported claims
+
+Roles, dates, titles, education, skills and Lenovo Project details must match the Resume and Richard's LinkedIn profile, which he keeps aligned; on a small mismatch LinkedIn wins. A skill Richard states directly that he has hands-on experience with (e.g. Three.js) also counts as sourced. Featured Project claims must be backed by the project's repository. Content with no source (certifications, personality traits, VR/AR, "AI-First", code-time percentages) is removed rather than kept, and no metric is shown unless it was measured.
