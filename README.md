@@ -1,88 +1,84 @@
-# Richard Schmidt - Personal Portfolio
+# Richard Schmidt — Portfolio
 
-This is a personal portfolio website built with **Next.js 16**, **React 19**, **TypeScript**, and **Tailwind CSS v4**. It showcases my professional experience, skills, education, and projects in a clean and modern interface.
+A bilingual engineering portfolio built with Next.js App Router, React, TypeScript, Tailwind CSS v4 and React Compiler. English is the default; Brazilian Portuguese has its own statically generated routes, metadata and date formatting.
 
-## 🚀 Tech Stack
+## Run locally
 
-- **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
-- **Library:** [React 19](https://react.dev/)
-- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
-- **Language:** [TypeScript](https://www.typescriptlang.org/)
-- **Package Manager:** npm
+Use Node.js 22 or newer and npm.
 
-## ✨ Features
-
-- **Data-Driven Content:** All portfolio data (personal info, experience, skills) is managed in a structured TypeScript file (`src/data/portfolio.ts`) for easy updates.
-- **Responsive Design:** Fully responsive layout optimized for mobile, tablet, and desktop.
-- **Modern UI:** Clean and professional design using Tailwind CSS.
-- **Sections:**
-  - **Hero:** Introduction and summary.
-  - **Experience:** Professional work history.
-  - **Education:** Academic background.
-  - **Skills:** Technical skills and languages.
-
-## 📂 Project Structure
-
-```text
-src/
-├── app/              # Next.js App Router pages and layout
-├── components/       # Reusable UI components (Hero, Experience, etc.)
-├── data/             # Static data for the portfolio content
-└── ...
-```
-
-## 🛠️ Getting Started
-
-Follow these steps to run the project locally:
-
-### Prerequisites
-
-- Node.js (v18 or higher recommended)
-- npm
-
-### Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/Richard-S16/portfolio.git
-   cd portfolio
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-### Running Development Server
-
-Start the development server:
-
-```bash
+```sh
+npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [localhost:3000](http://localhost:3000). For an optimized build:
 
-### Building for Production
-
-To create a production build:
-
-```bash
+```sh
 npm run build
-```
-
-To start the production server:
-
-```bash
 npm start
 ```
 
-## 📝 Customization
+No environment variables, API keys, analytics, database or external form service are needed.
 
-To update the content of the portfolio, simply edit the `src/data/portfolio.ts` file. The components will automatically render the updated data.
+## Content and routes
 
-## 📄 License
+| Location | Purpose |
+| --- | --- |
+| `src/data/portfolio.ts` | Project identifiers, source citations, technology lists and dates |
+| `src/data/en.ts`, `src/data/pt-br.ts` | Typed English and Brazilian Portuguese copy, including case studies |
+| `src/lib/site.ts` | Production origin, public contact links, metadata and locale/date helpers |
+| `src/app/(english)` | English homepage and four generated case studies |
+| `src/app/pt-br` | Matching Portuguese routes |
+| `src/components` | Server-rendered sections and small, scoped interactive components |
+| `src/app/globals.css` | Tailwind import, light/dark tokens and responsive presentation |
 
-This project is open source and available under the [MIT License](LICENSE).
+The `Dictionary` interface requires both locales to implement every copy key and every featured project. English URLs stay unprefixed; Portuguese mirrors them under `/pt-br`. The language switch preserves the current case study. Explicit language selection is intentional: no browser-language redirects.
+
+Separate root layouts set the correct HTML language without a per-request proxy. Next.js's experimental `globalNotFound` option provides a custom global 404 across those layouts. Unknown URLs show an English recovery page with a Portuguese homepage link.
+
+## Design and rendering
+
+The owner's black, white and red identity carries both themes. A small pre-paint script applies the saved or system theme. The toggle persists explicit selection, responds to system changes when no choice is saved, and tolerates unavailable browser storage.
+
+Page content stays in Server Components. The theme toggle is the only authored Client Component. Mobile navigation uses native `details`; project interactions use CSS with reduced-motion support. There is no animation-library runtime, scroll handler or tracking script.
+
+Fonts are self-hosted through `next/font`. The favicon is authored SVG; localized social cards are generated with `next/og`. Canonicals, language alternates, sitemap, robots and Person structured data use the production origin in `src/lib/site.ts`.
+
+## Project images
+
+All thumbnails are **deliberate placeholders approved by the owner**, not fabricated screenshots. They are not a blocker for this version.
+
+`ProjectPreview` accepts an optional `{ src, alt }` image and uses `next/image` with a reserved-size container. Add local optimized screenshots under `public/projects`, then pass the image for the corresponding project. Write alt text in both dictionaries. Keep aspect ratio and avoid text-heavy captures at unreadable sizes.
+
+The five Lenovo summaries describe only public product purposes. Homepage thumbnails may be added only after the owner confirms public-use clearance. Never commit internal code, architecture, client data, license keys, private endpoints or unapproved screenshots.
+
+## Resume
+
+`/resume.pdf` temporarily redirects (307) to the owner's public Google Docs PDF export. Changes to the document require no redeploy. Google sets the PDF filename. The document must remain accessible to anyone with the link; download availability and generation time depend on Google. The same English PDF is used in both locales.
+
+## Verification
+
+```sh
+npm run lint
+npm run typecheck
+npm run build
+npx playwright install chromium
+npm test
+npm audit --omit=dev
+```
+
+Tests cover desktop/mobile, both languages, all eight case-study routes, metadata, source citations, keyboard navigation, narrow layouts, theme storage/system behavior, automated accessibility, 404s, social images, sitemap/robots and the resume redirect. External checks also verify repository/source URLs and the actual PDF signature. LinkedIn may block automation with 999/403/429; that is reported as a blocked check, not proof of a working profile.
+
+`npm run test:external` runs only network-dependent checks. Run offline-capable checks with `npx playwright test --project=desktop --project=mobile`. Local tests reuse the running development server; CI builds and starts the application. To test an already-running production server, set `PLAYWRIGHT_BASE_URL` to its local origin before running tests. Reports and screenshot evidence are gitignored.
+
+Lighthouse lab scores are not field Core Web Vitals. No performance measurements are displayed on the site. Recheck the deployed application after real screenshots are added; they can materially change loading performance.
+
+## Deployment and maintenance
+
+Deploy to a Next.js-compatible host, using the build command `npm run build`. The canonical origin is `https://portfolio-rschmidt.vercel.app`; update the single constant in `src/lib/site.ts` if the domain changes. No deployment or external-service changes are performed by this implementation.
+
+Keep dates and claims aligned with the current resume and LinkedIn. Public-project case studies cite the implementations and explicitly acknowledge limitations rather than presenting experiments as commercial production products.
+
+Product truth is in `PRODUCT.md`; visual rules are in `DESIGN.md`; decisions are in `docs/adr`. These are public-facing repository documents: do not add private exports or secrets. A Next.js-generated `AGENTS.md` points coding agents to the installed framework documentation.
+
+No license grant is implied for the portfolio's copy, design or personal assets.
