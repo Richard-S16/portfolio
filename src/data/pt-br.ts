@@ -18,10 +18,10 @@ export const ptBr: Dictionary = {
     theme: "Alternar tema de cores",
   },
   hero: {
-    title: "Interfaces bem pensadas.",
-    emphasis: "Engenharia sólida.",
+    title: "Engenharia frontend",
+    emphasis: "Foco em performance",
     intro:
-      "Sou Richard Schmidt, engenheiro de software com mais de 5 anos na Lenovo P&D. Desenvolvo aplicações web modernas com foco em performance, arquitetura e nos detalhes que fazem a diferença no uso.",
+      "Sou Richard Schmidt, engenheiro de software com mais de 5 anos na Lenovo P&D. Trabalho com performance frontend, arquitetura de aplicações e modernização de sistemas legados para mercados globais.",
     location: "Indaiatuba, Brasil",
     availability: "Disponível para relocação",
     work: "Explore meus projetos",
@@ -35,14 +35,12 @@ export const ptBr: Dictionary = {
       "Projetos pessoais que transformam questões de engenharia em experiências que você pode explorar.",
     caseStudy: "Conheça o projeto",
     repository: "Ver código no GitHub",
-    placeholder: "Prévia em breve",
-    placeholderNote: "Captura do projeto a ser adicionada.",
     progress: "Em desenvolvimento",
     benchmark:
       "Benchmark Bundlers é uma estrutura de benchmarks para ferramentas frontend no Windows. Trilhas separadas de SPA e Next.js preservam o contexto das comparações. Os resultados publicados são parciais; não há uma ferramenta vencedora declarada.",
   },
   experience: {
-    title: "Construindo em equipe global.",
+    title: "Engenharia na Lenovo P&D",
     intro:
       "Cinco anos de responsabilidade crescente na Lenovo P&D, desenvolvendo e mantendo aplicações para América do Norte, LATAM, EMEA e APAC.",
     tenure: "Lenovo P&D · Desde julho de 2021",
@@ -60,6 +58,13 @@ export const ptBr: Dictionary = {
     confidentiality:
       "Resumos limitados à finalidade pública dos produtos. Código, arquitetura e detalhes de implementação internos permanecem confidenciais.",
     contribution: "Atuei no projeto",
+    imageAlts: {
+      skillmatrix: "Área de trabalho do SkillMatrix com filtros de habilidades, níveis de proficiência e formulários de avaliação.",
+      "service-central": "Painel de gerenciamento de chaves de licença do Service Central com filtros de centros de reparo e controles de alocação.",
+      "qr-code-scan": "Relatório de diagnóstico do QR Code Scan com informações do dispositivo, solução de problemas, guias e consulta de peças.",
+      resolute: "Painel do Resolute com navegação, notas de atualização de software e mapa global de controle.",
+      sra: "Tela inicial do Smart Remote Assistance com as categorias de dispositivos Consumer e Commercial.",
+    },
     items: {
       skillmatrix:
         "Plataforma para colaboradores mapearem habilidades, acompanharem seu desenvolvimento e compartilharem os projetos em que atuam.",
@@ -73,7 +78,7 @@ export const ptBr: Dictionary = {
     },
   },
   expertise: {
-    title: "Profundidade no que importa.",
+    title: "Frontend, performance e arquitetura",
     intro:
       "Foco em frontend, com a visão de arquitetura necessária para conectar toda a experiência.",
     items: [
@@ -102,7 +107,7 @@ export const ptBr: Dictionary = {
     ],
   },
   about: {
-    title: "Um pouco de contexto.",
+    title: "Sobre Richard",
     text: "Sou engenheiro de software brasileiro, de Indaiatuba, São Paulo. Meu trabalho conecta arquitetura frontend à experiência de quem usa o produto. Colaboro com equipes distribuídas, modernizo aplicações existentes e uso projetos pessoais para explorar ideias de engenharia em profundidade.",
     education: "Formação",
     degree: "Tecnólogo em Sistemas para Internet",
@@ -113,14 +118,20 @@ export const ptBr: Dictionary = {
       "Inglês — Proficiência profissional completa\nPortuguês — Nativo",
   },
   contact: {
-    title: "Vamos construir algo\nque valha a pena usar.",
+    title: "Vamos conversar sobre\na sua equipe de engenharia",
     text: "Aberto a oportunidades de engenharia no exterior. Se meu trabalho fizer sentido para a sua equipe, vamos conversar.",
     email: "Envie um e-mail",
     location: "Indaiatuba, São Paulo, Brasil · Disponível para relocação",
   },
   footer: {
-    note: "Design com propósito. Feito para a web.",
+    note: "Engenharia frontend · Do Brasil para o mundo",
     top: "Voltar ao topo",
+  },
+  notFound: {
+    title: "Página não encontrada",
+    description: "O projeto ou a página que você procura não está aqui.",
+    back: "Voltar ao portfólio",
+    otherLanguage: "View portfolio in English",
   },
   study: {
     back: "Todos os projetos",
@@ -137,6 +148,7 @@ export const ptBr: Dictionary = {
   },
   projects: {
     "core-web-vitals-playground": {
+      imageAlt: "Página inicial do Core Web Vitals Playground com campo para análise de sites, métricas de laboratório, dados de campo e dicas práticas.",
       category: "Performance web",
       description:
         "Entenda não só como um site se comporta, mas por onde começar a investigar.",
@@ -169,6 +181,7 @@ export const ptBr: Dictionary = {
         "Ferramenta pessoal com modo de comparação e Fix Impact Estimator. As estimativas são heurísticas, não melhorias medidas. A disponibilidade dos dados depende do PageSpeed Insights e do CrUX; auditorias ausentes exigem cuidado na interpretação.",
     },
     archlens: {
+      imageAlt: "Página inicial do ArchLens com campo de repositório e visão geral do fluxo de análise de arquitetura.",
       category: "Arquitetura e IA",
       description:
         "A estrutura de um repositório visível, das relações entre imports às análises de arquitetura.",
@@ -201,6 +214,7 @@ export const ptBr: Dictionary = {
         "Projeto pessoal de análise de repositórios com visualização interativa de dependências. Pontuações de arquitetura são fórmulas heurísticas, não medidas de manutenibilidade ou escalabilidade. Cobertura de repositórios grandes e limitação de requisições em memória são restrições explícitas.",
     },
     "tanstack-query-control-room": {
+      imageAlt: "TanStack Query Control Room exibindo um cenário de ciclo de vida de consultas, inspetor de cache e linha do tempo de eventos.",
       category: "Estado de servidor",
       description:
         "Veja o que o cache faz e por quê. Um ambiente prático para explorar TanStack Query.",
@@ -233,6 +247,7 @@ export const ptBr: Dictionary = {
         "Doze experimentos cobrem cache, atualização, novas tentativas, paginação, queries dependentes, prefetch, atualizações otimistas e pausa/retomada offline. Os dados ficam em memória; o cenário offline não é uma fila persistente de mutations.",
     },
     "vision-lab": {
+      imageAlt: "VISION-LAB identificando um notebook em uma cena 3D interativa com uma caixa de detecção.",
       category: "IA e 3D no navegador",
       description:
         "Uma cena 3D ao vivo encontra a detecção de objetos, inteiramente no navegador.",

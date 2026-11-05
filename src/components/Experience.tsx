@@ -1,10 +1,11 @@
+import Image from "next/image";
 import { roles, lenovoProjects } from "@/data/portfolio";
 import { getDictionary } from "@/lib/dictionary";
 import { dateRange, type Locale } from "@/lib/site";
 import { Section } from "./Section";
 
 export function Experience({ locale }: { locale: Locale }) {
-  const { experience: c, work } = getDictionary(locale);
+  const { experience: c } = getDictionary(locale);
   return (
     <div className="experience-band">
       <Section id="experience" title={c.title} intro={c.intro}>
@@ -36,13 +37,13 @@ export function Experience({ locale }: { locale: Locale }) {
           {lenovoProjects.map((p) => (
             <article key={p.id} className="lenovo-project">
               <div
-                className="lenovo-placeholder"
-                aria-label={work.placeholderNote}
+                className="lenovo-thumbnail"
               >
-                <span aria-hidden="true">
-                  {p.name.slice(0, 2).toUpperCase()}
-                </span>
-                <small>{work.placeholder}</small>
+                <Image
+                  {...p.image}
+                  alt={c.imageAlts[p.id]}
+                  sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1352px) 50vw, 598px"
+                />
               </div>
               <div>
                 <p className="date-range">

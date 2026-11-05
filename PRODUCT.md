@@ -25,7 +25,7 @@ Five-plus years at Lenovo R&D, with performance, legacy modernization, frontend 
 - Four featured public projects, statically generated case studies, Benchmark-Bundlers explicitly in progress, and all five Lenovo projects in Experience.
 - Light/dark themes follow system preference with persisted explicit selection and no initial flash.
 - Resume downloads through a temporary redirect to the owner's public Google Docs PDF export. No form service, analytics or tracking.
-- Homepage thumbnails are explicitly approved placeholders until supplied. Lenovo thumbnails require public-use clearance. No internal architecture, screenshots or source code.
+- Nine real owner-supplied screenshots are approved, including explicit public-use clearance for all five Lenovo thumbnails. The owner requested uncensored screenshot content; resize and encode without masking. Do not expose additional internal architecture or source code. Replacement imagery requires renewed clearance and privacy review.
 - Work only on `new-version`; do not deploy or push without authorization.
 
 ## Brand Commitments

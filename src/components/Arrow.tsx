@@ -1,4 +1,10 @@
-export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
+export function Arrow({
+  diagonal = false,
+  direction = "right",
+}: {
+  diagonal?: boolean;
+  direction?: "right" | "left" | "up" | "down";
+}) {
   return (
     <svg
       aria-hidden="true"
@@ -10,7 +16,7 @@ export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
       strokeWidth="1.6"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="arrow"
+      className={`arrow arrow-${direction}`}
     >
       {diagonal ? (
         <path d="M6 18 18 6M6 6h12v12" />

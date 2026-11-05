@@ -1,6 +1,7 @@
 import type { ProjectSlug, LenovoId } from "./portfolio";
 
 export interface ProjectCopy {
+  imageAlt: string;
   category: string;
   description: string;
   problem: string;
@@ -39,8 +40,6 @@ export interface Dictionary {
     intro: string;
     caseStudy: string;
     repository: string;
-    placeholder: string;
-    placeholderNote: string;
     progress: string;
     benchmark: string;
   };
@@ -54,6 +53,7 @@ export interface Dictionary {
     confidentiality: string;
     contribution: string;
     items: Record<LenovoId, string>;
+    imageAlts: Record<LenovoId, string>;
   };
   expertise: {
     title: string;
@@ -78,6 +78,12 @@ export interface Dictionary {
   };
   contact: { title: string; text: string; email: string; location: string };
   footer: { note: string; top: string };
+  notFound: {
+    title: string;
+    description: string;
+    back: string;
+    otherLanguage: string;
+  };
   study: {
     back: string;
     problem: string;
@@ -111,10 +117,10 @@ export const en: Dictionary = {
     theme: "Switch color theme",
   },
   hero: {
-    title: "Thoughtful interfaces.",
-    emphasis: "Solid engineering.",
+    title: "Frontend engineering",
+    emphasis: "Built for performance",
     intro:
-      "I’m Richard Schmidt, a software engineer with 5+ years at Lenovo R&D. I build modern web applications with a focus on performance, architecture, and the details that make them work well.",
+      "I’m Richard Schmidt, a software engineer with 5+ years at Lenovo R&D. My work focuses on frontend performance, application architecture, and legacy modernization for global markets.",
     location: "Indaiatuba, Brazil",
     availability: "Open to relocation",
     work: "Explore my work",
@@ -128,14 +134,12 @@ export const en: Dictionary = {
       "Personal projects that turn engineering questions into something you can explore.",
     caseStudy: "Read case study",
     repository: "View source on GitHub",
-    placeholder: "Preview coming soon",
-    placeholderNote: "Project screenshot to be added.",
     progress: "In progress",
     benchmark:
       "Benchmark Bundlers is a Windows benchmark harness for frontend tooling. Separate SPA and Next.js tracks keep comparisons honest. Published results are partial; no overall winner is claimed.",
   },
   experience: {
-    title: "Built in a global team.",
+    title: "Engineering at Lenovo R&D",
     intro:
       "Five years of growing responsibility at Lenovo R&D, building and maintaining applications for North America, LATAM, EMEA, and APAC.",
     tenure: "Lenovo R&D · Since July 2021",
@@ -153,6 +157,13 @@ export const en: Dictionary = {
     confidentiality:
       "Public-purpose summaries only. Internal code, architecture, and implementation details remain confidential.",
     contribution: "Worked on",
+    imageAlts: {
+      skillmatrix: "SkillMatrix workspace with skill filters, proficiency levels and assessment forms.",
+      "service-central": "Service Central license-key management panel with repair-center filters and allocation controls.",
+      "qr-code-scan": "QR Code Scan diagnostic report with device information, troubleshooting, guides and parts lookup.",
+      resolute: "Resolute dashboard with navigation, software update notes and a global control map.",
+      sra: "Smart Remote Assistance home screen with Consumer and Commercial device categories.",
+    },
     items: {
       skillmatrix:
         "A platform for employees to map skills, track development, and share the projects they support.",
@@ -166,7 +177,7 @@ export const en: Dictionary = {
     },
   },
   expertise: {
-    title: "Depth where it matters.",
+    title: "Frontend, performance & architecture",
     intro:
       "A frontend focus, with the architectural context to connect the whole experience.",
     items: [
@@ -195,7 +206,7 @@ export const en: Dictionary = {
     ],
   },
   about: {
-    title: "A little context.",
+    title: "About Richard",
     text: "I’m a Brazilian software engineer based in Indaiatuba, São Paulo. My work sits between frontend architecture and the experience people actually use. I collaborate with distributed teams, modernize existing applications, and use personal projects to explore engineering ideas in depth.",
     education: "Education",
     degree: "Technology Degree in Computer Software Development",
@@ -206,14 +217,20 @@ export const en: Dictionary = {
       "English — Full professional proficiency\nPortuguese — Native",
   },
   contact: {
-    title: "Let’s build something\nworth using.",
+    title: "Let’s talk about\nyour engineering team",
     text: "Open to engineering opportunities abroad. If my work looks like a fit for your team, I’d like to hear from you.",
     email: "Send me an email",
     location: "Indaiatuba, São Paulo, Brazil · Open to relocation",
   },
   footer: {
-    note: "Designed with intent. Built for the web.",
+    note: "Frontend engineering · Brazil & beyond",
     top: "Back to top",
+  },
+  notFound: {
+    title: "Page not found",
+    description: "The project or page you’re looking for isn’t here.",
+    back: "Back to the portfolio",
+    otherLanguage: "Ver portfólio em português",
   },
   study: {
     back: "All work",
@@ -230,6 +247,7 @@ export const en: Dictionary = {
   },
   projects: {
     "core-web-vitals-playground": {
+      imageAlt: "Core Web Vitals Playground homepage with a website analysis field and lab metrics, field data and actionable tips.",
       category: "Web performance",
       description:
         "Understand not just how a website performs, but where to investigate next.",
@@ -262,6 +280,7 @@ export const en: Dictionary = {
         "Personal analysis tool with comparison mode and a Fix Impact Estimator. Estimates are heuristics, not measured improvements. Data availability depends on PageSpeed Insights and CrUX; missing audits need care when interpreting results.",
     },
     archlens: {
+      imageAlt: "ArchLens homepage with a repository input and an overview of its architecture-analysis workflow.",
       category: "Architecture & AI",
       description:
         "Make a repository’s structure visible, from import relationships to architecture insights.",
@@ -294,6 +313,7 @@ export const en: Dictionary = {
         "Personal repository-analysis project with interactive dependency visualization. Architecture scores are heuristic formulas, not measured maintainability or scalability. Large-repository coverage and in-memory rate limiting are explicit constraints.",
     },
     "tanstack-query-control-room": {
+      imageAlt: "TanStack Query Control Room showing a query lifecycle scenario, cache inspector and event timeline.",
       category: "Server state",
       description:
         "See what the cache is doing, and why. A hands-on environment for TanStack Query.",
@@ -326,6 +346,7 @@ export const en: Dictionary = {
         "Twelve experiments cover cache behavior, freshness, retries, pagination, dependent queries, prefetching, optimistic updates, and offline pause/resume. Data lives in memory; the offline scenario is not a durable mutation queue.",
     },
     "vision-lab": {
+      imageAlt: "VISION-LAB identifying a laptop in an interactive 3D scene with a detection bounding box.",
       category: "Browser AI & 3D",
       description:
         "A live 3D scene meets object detection, entirely in the browser.",

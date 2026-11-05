@@ -29,7 +29,7 @@ export function CaseStudy({
       <Header locale={locale} path={`/work/${project.slug}`} />
       <main id="main" className="case-study wrap">
         <a className="back-link" href={`${localePath(locale)}#work`}>
-          <span aria-hidden="true">← </span>
+          <Arrow direction="left" />
           {d.study.back}
         </a>
         <div className="case-heading">
@@ -45,9 +45,8 @@ export function CaseStudy({
         </div>
         <ProjectPreview
           field={project.field}
-          name={project.name}
-          label={d.work.placeholder}
-          note={d.work.placeholderNote}
+          image={{ ...project.image, alt: c.imageAlt }}
+          sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1352px) calc(100vw - 112px), 1240px"
         />
         <div className="case-body">
           <section>
