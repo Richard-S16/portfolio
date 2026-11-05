@@ -3,6 +3,7 @@ import type { Locale } from "@/lib/site";
 import { localePath } from "@/lib/site";
 import { getDictionary } from "@/lib/dictionary";
 import { ThemeToggle } from "./ThemeToggle";
+import { Arrow } from "./Arrow";
 
 export function Header({
   locale,
@@ -47,16 +48,14 @@ export function Header({
           title={nav.language}
         >
           <span className={locale === "en" ? "current" : ""}>EN</span>
-          <span className="language-divider">
-            /
-          </span>
+          <span className="language-divider">/</span>
           <span className={locale === "pt-br" ? "current" : ""}>PT</span>
           <span className="sr-only"> — {nav.language}</span>
         </Link>
         <ThemeToggle label={nav.theme} />
         <a className="header-resume" href="/resume.pdf">
           {nav.resume}
-          <span aria-hidden="true"> ↗</span>
+          <Arrow diagonal />
         </a>
       </div>
       <details className="mobile-nav">

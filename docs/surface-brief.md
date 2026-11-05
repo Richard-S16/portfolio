@@ -10,7 +10,7 @@ OWN-WORLD: White, black and purposeful red, following the owner's personal brand
 
 STORY: Read the specialty, inspect selected work, connect it to five years of professional practice, then get in touch or download the resume.
 
-FIRST VIEWPORT: A slim wordmark/nav bar. Large left-aligned two-line engineering thesis with an asymmetric project index to the right; name and career context remain visible. Primary work action below the introduction. The work section begins immediately below the hero.
+FIRST VIEWPORT: A slim wordmark/nav bar. “Frontend engineering / Built for performance” leads a left-aligned two-line headline, with an asymmetric project index to the right. Name and Lenovo tenure stay in the supporting copy, not the headline. The Portuguese version follows the same hierarchy. Primary work action below the introduction. The work section begins immediately below the hero.
 
 FORM: Engineering index, grounded candidate 4; seed cfd58e68. Grounded alternatives were design-studio folio, technical publication, product gallery, engineering index, conference program, architectural practice archive and software field guide. The brief pins restrained editorial direction and delegates selection. All catalog challengers decline on hiring-context identification and clarity: VU desk, cathode stack, cephalopod skin, dive wall, wall calendar and sampler. Retained disciplines: VU scanability, cathode state clarity, skin's adaptive layout, dive wall's sequential depth, calendar's visual/prose balance, sampler's career progression. No motifs or decorative simulations are borrowed.
 

@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { notFound } from "next/navigation";
+import { getDictionary } from "@/lib/dictionary";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -13,6 +14,7 @@ export async function GET(
   const { locale } = await params;
   if (locale !== "en" && locale !== "pt-br") notFound();
   const pt = locale === "pt-br";
+  const { hero } = getDictionary(locale);
   return new ImageResponse(
     <div
       style={{
@@ -47,12 +49,8 @@ export async function GET(
           lineHeight: 1.1,
         }}
       >
-        <span>
-          {pt ? "Interfaces bem pensadas." : "Thoughtful interfaces."}
-        </span>
-        <span style={{ color: "#ff6767" }}>
-          {pt ? "Engenharia sólida." : "Solid engineering."}
-        </span>
+        <span>{hero.title}</span>
+        <span style={{ color: "#ff6767" }}>{hero.emphasis}</span>
       </div>
       <div
         style={{

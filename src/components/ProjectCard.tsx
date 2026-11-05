@@ -23,9 +23,7 @@ export function ProjectCard({
       >
         <ProjectPreview
           field={project.field}
-          name={project.name}
-          label={d.work.placeholder}
-          note={d.work.placeholderNote}
+          image={{ ...project.image, alt: c.imageAlt }}
         />
       </Link>
       <div className="project-info">

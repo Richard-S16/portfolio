@@ -62,7 +62,7 @@ export function Hero({ locale }: { locale: Locale }) {
         <span>{d.hero.location}</span>
         <a href="/resume.pdf">
           {d.nav.resume}
-          <span aria-hidden="true"> ↓</span>
+          <Arrow direction="down" />
         </a>
       </div>
     </section>

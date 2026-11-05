@@ -1,5 +1,6 @@
 import { getDictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/site";
+import { Arrow } from "./Arrow";
 
 export function Footer({ locale }: { locale: Locale }) {
   const { footer } = getDictionary(locale);
@@ -9,7 +10,7 @@ export function Footer({ locale }: { locale: Locale }) {
       <p>{footer.note}</p>
       <a href="#top">
         {footer.top}
-        <span aria-hidden="true"> ↑</span>
+        <Arrow direction="up" />
       </a>
     </footer>
   );

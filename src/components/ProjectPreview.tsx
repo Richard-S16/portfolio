@@ -2,35 +2,22 @@ import Image from "next/image";
 
 export function ProjectPreview({
   field,
-  name,
-  label,
-  note,
   image,
+  sizes = "(max-width: 720px) calc(100vw - 40px), (max-width: 1352px) 58vw, 710px",
 }: {
   field: string;
-  name: string;
-  label: string;
-  note: string;
-  image?: { src: string; alt: string };
+  image: { src: string; alt: string; width: number; height: number };
+  sizes?: string;
 }) {
   return (
-    <div className={`project-preview preview-${field}`}>
-      {image ? (
-        <Image
-          src={image.src}
-          alt={image.alt}
-          fill
-          sizes="(max-width: 720px) 100vw, 65vw"
-        />
-      ) : (
-        <>
-          <span className="preview-note">{label}</span>
-          <span className="preview-name">
-            {name}
-          </span>
-          <span className="preview-caption">{note}</span>
-        </>
-      )}
+    <div className={`project-preview project-image preview-${field}`}>
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={image.width}
+        height={image.height}
+        sizes={sizes}
+      />
     </div>
   );
 }

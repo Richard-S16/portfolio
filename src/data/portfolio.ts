@@ -4,6 +4,7 @@ export const projects = [
     name: "Core Web Vitals Playground",
     repo: "Core-Web-Vitals-Playground",
     field: "performance",
+    image: { src: "/projects/core-web-vitals-playground.webp", width: 1600, height: 898 },
     stack: ["Next.js", "TypeScript", "Web Workers", "Tailwind CSS"],
     sourcePaths: [
       "src/app/api/analyze/route.ts",
@@ -17,6 +18,7 @@ export const projects = [
     name: "ArchLens",
     repo: "ArchLens",
     field: "architecture",
+    image: { src: "/projects/archlens.webp", width: 1134, height: 1079 },
     stack: ["Next.js", "TypeScript", "React Flow", "AI SDK"],
     sourcePaths: [
       "src/lib/analyzer.ts",
@@ -30,6 +32,7 @@ export const projects = [
     name: "TanStack Query Control Room",
     repo: "TanStack-Query-Control-Room",
     field: "state",
+    image: { src: "/projects/tanstack-query-control-room.webp", width: 1600, height: 857 },
     stack: ["React", "TanStack Query", "TypeScript", "Zustand"],
     sourcePaths: [
       "src/sim/api.ts",
@@ -43,6 +46,7 @@ export const projects = [
     name: "VISION-LAB",
     repo: "VISION-LAB",
     field: "visualization",
+    image: { src: "/projects/vision-lab.webp", width: 1600, height: 900 },
     stack: ["Babylon.js", "Transformers.js", "WebGPU", "Web Workers"],
     sourcePaths: [
       "src/main.js",
@@ -65,12 +69,14 @@ export const roles = [
 export const lenovoProjects = [
   {
     id: "skillmatrix",
+    image: { src: "/projects/skillmatrix-f89e857e.webp", width: 1600, height: 899 },
     name: "SkillMatrix",
     start: "2026-08",
     stack: ["Next.js", "TypeScript", "NestJS", "TanStack Query"],
   },
   {
     id: "service-central",
+    image: { src: "/projects/service-central-dc961ecf.webp", width: 1600, height: 896 },
     name: "Service Central",
     start: "2025-04",
     stack: [
@@ -85,6 +91,7 @@ export const lenovoProjects = [
   },
   {
     id: "qr-code-scan",
+    image: { src: "/projects/qr-code-scan-f1ec71a6.webp", width: 1600, height: 894 },
     name: "QR Code Scan",
     start: "2025-05",
     end: "2026-10",
@@ -92,6 +99,7 @@ export const lenovoProjects = [
   },
   {
     id: "resolute",
+    image: { src: "/projects/resolute-4136ee0c.webp", width: 1600, height: 900 },
     name: "Resolute",
     start: "2024-04",
     end: "2025-04",
@@ -107,6 +115,7 @@ export const lenovoProjects = [
   },
   {
     id: "sra",
+    image: { src: "/projects/sra.webp", width: 1600, height: 900 },
     name: "Smart Remote Assistance",
     start: "2021-07",
     end: "2024-04",
