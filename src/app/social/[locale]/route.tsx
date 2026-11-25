@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import { notFound } from "next/navigation";
 import { getDictionary } from "@/lib/dictionary";
+import { site } from "@/lib/site";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -13,7 +14,6 @@ export async function GET(
 ) {
   const { locale } = await params;
   if (locale !== "en" && locale !== "pt-br") notFound();
-  const pt = locale === "pt-br";
   const { hero } = getDictionary(locale);
   return new ImageResponse(
     <div
@@ -32,11 +32,10 @@ export async function GET(
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "flex-end",
           fontSize: 28,
         }}
       >
-        <span>Richard Schmidt</span>
         <span style={{ color: "#ff6767" }}>r.</span>
       </div>
       <div
@@ -49,8 +48,8 @@ export async function GET(
           lineHeight: 1.1,
         }}
       >
-        <span>{hero.title}</span>
-        <span style={{ color: "#ff6767" }}>{hero.emphasis}</span>
+        <span>{site.name}</span>
+        <span style={{ color: "#ff6767", fontSize: 44 }}>{hero.role}</span>
       </div>
       <div
         style={{
@@ -60,11 +59,7 @@ export async function GET(
           fontSize: 23,
         }}
       >
-        <span>
-          {pt
-            ? "Engenheiro de Software · Frontend"
-            : "Software Engineer · Frontend"}
-        </span>
+        <span>{hero.location}</span>
         <span>React / Next.js / TypeScript</span>
       </div>
     </div>,

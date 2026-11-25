@@ -3,6 +3,7 @@ export const projects = [
     slug: "core-web-vitals-playground",
     name: "Core Web Vitals Playground",
     repo: "Core-Web-Vitals-Playground",
+    liveUrl: "https://core-web-vitals-playground.vercel.app/",
     field: "performance",
     image: { src: "/projects/core-web-vitals-playground.webp", width: 1600, height: 898 },
     stack: ["Next.js", "TypeScript", "Web Workers", "Tailwind CSS"],
@@ -17,8 +18,9 @@ export const projects = [
     slug: "archlens",
     name: "ArchLens",
     repo: "ArchLens",
+    liveUrl: "https://arch-lens-ai.vercel.app/",
     field: "architecture",
-    image: { src: "/projects/archlens.webp", width: 1919, height: 1079 },
+    image: { src: "/projects/archlens-home.webp", width: 1919, height: 1079 },
     stack: ["Next.js", "TypeScript", "React Flow", "AI SDK"],
     sourcePaths: [
       "src/lib/analyzer.ts",

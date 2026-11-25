@@ -18,21 +18,16 @@ export const ptBr: Dictionary = {
     theme: "Alternar tema de cores",
   },
   hero: {
-    title: "Engenharia frontend",
-    emphasis: "Foco em performance",
     intro:
-      "Sou Richard Schmidt, engenheiro de software com mais de 5 anos na Lenovo P&D. Trabalho com performance frontend, arquitetura de aplicações e modernização de sistemas legados para mercados globais.",
+      "Desenvolvo e modernizo aplicações web na Lenovo P&D, com foco em performance e arquitetura frontend.",
     location: "Indaiatuba, Brasil",
     availability: "Disponível para relocação",
     work: "Explore meus projetos",
     contact: "Vamos conversar",
-    index: "Minhas áreas de atuação",
-    role: "Engenheiro de Software · React / Next.js / TypeScript",
+    role: "Engenheiro de software frontend",
   },
   work: {
     title: "Projetos selecionados",
-    intro:
-      "Projetos pessoais que transformam questões de engenharia em experiências que você pode explorar.",
     caseStudy: "Conheça o projeto",
     repository: "Ver código no GitHub",
     progress: "Em desenvolvimento",
@@ -41,8 +36,6 @@ export const ptBr: Dictionary = {
   },
   experience: {
     title: "Engenharia na Lenovo P&D",
-    intro:
-      "Cinco anos de responsabilidade crescente na Lenovo P&D, desenvolvendo e mantendo aplicações para América do Norte, LATAM, EMEA e APAC.",
     tenure: "Lenovo P&D · Desde julho de 2021",
     roleTitles: [
       "Engenheiro de Software II",
@@ -79,8 +72,6 @@ export const ptBr: Dictionary = {
   },
   expertise: {
     title: "Frontend, performance e arquitetura",
-    intro:
-      "Foco em frontend, com a visão de arquitetura necessária para conectar toda a experiência.",
     items: [
       {
         title: "Engenharia frontend",

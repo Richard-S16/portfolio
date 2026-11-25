@@ -17,12 +17,28 @@ for (const locale of ["en", "pt-br"] as const) {
       "lang",
       locale === "en" ? "en" : "pt-BR",
     );
-    await expect(page.locator("h1")).toHaveCount(1);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Richard Schmidt");
     await expect(page.locator(".project-card")).toHaveCount(4);
     await expect(page.locator(".lenovo-project")).toHaveCount(5);
     const images = page.locator(".project-preview img, .lenovo-thumbnail img");
     await expect(images).toHaveCount(9);
     const dictionary = locale === "en" ? en : ptBr;
+    await expect(page.locator(".hero-role")).toHaveText(dictionary.hero.role);
+    await expect(page.locator(`.hero a[href="${prefix}/work/archlens"]`)).toHaveCount(0);
+    await expect(page.locator(".section-heading > p")).toHaveCount(0);
+    for (const [slug, name, liveUrl] of [
+      ["archlens", "ArchLens", "https://arch-lens-ai.vercel.app/"],
+      ["core-web-vitals-playground", "Core Web Vitals Playground", "https://core-web-vitals-playground.vercel.app/"],
+    ]) {
+      const card = page.locator("#work .project-card").filter({
+        has: page.getByRole("link", { name, exact: true }),
+      });
+      const title = card.getByRole("link", { name, exact: true });
+      await expect(title).toHaveAttribute("href", liveUrl);
+      await expect(card.locator(".preview-link")).toHaveAttribute("href", liveUrl);
+      await expect(card.getByRole("link", { name: dictionary.work.caseStudy }))
+        .toHaveAttribute("href", `${prefix}/work/${slug}`);
+    }
     expect(await images.evaluateAll(imgs => imgs.map(img => img.getAttribute("alt")))).toEqual([
       ...projects.map(project => dictionary.projects[project.slug].imageAlt),
       ...lenovoProjects.map(project => dictionary.experience.imageAlts[project.id]),
@@ -34,10 +50,13 @@ for (const locale of ["en", "pt-br"] as const) {
         img.complete && img.naturalWidth > 0,
       )).toBe(true);
     }
-    for (const panel of await page.locator(".lenovo-thumbnail").all()) {
+    const thumbnailSize = await page.locator(".lenovo-thumbnail").first().boundingBox();
+    for (const panel of await page.locator(".project-card .project-preview, .lenovo-thumbnail").all()) {
       const bounds = await panel.boundingBox();
       expect(bounds!.width).toBeGreaterThan(250);
       expect(bounds!.width / bounds!.height).toBeCloseTo(16 / 9, 1);
+      expect(bounds!.width).toBeCloseTo(thumbnailSize!.width, 0);
+      expect(bounds!.height).toBeCloseTo(thumbnailSize!.height, 0);
     }
     await expect(page.locator(".timeline h4").first()).toHaveText(
       locale === "en" ? "Software Engineer II" : "Engenheiro de Software II",
@@ -115,7 +134,7 @@ for (const locale of ["en", "pt-br"] as const) {
     const failures = await page.evaluate(() => {
       const problems: string[] = [];
       for (const element of document.querySelectorAll(
-        ".tech-list, .date-range, .index-row, .hero-identity p, .site-footer",
+        ".tech-list, .date-range, .hero-bottom, .site-footer",
       )) {
         if (parseFloat(getComputedStyle(element).fontSize) < 12)
           problems.push(
