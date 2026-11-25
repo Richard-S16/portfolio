@@ -18,7 +18,7 @@ export const projects = [
     name: "ArchLens",
     repo: "ArchLens",
     field: "architecture",
-    image: { src: "/projects/archlens.webp", width: 1134, height: 1079 },
+    image: { src: "/projects/archlens.webp", width: 1919, height: 1079 },
     stack: ["Next.js", "TypeScript", "React Flow", "AI SDK"],
     sourcePaths: [
       "src/lib/analyzer.ts",
