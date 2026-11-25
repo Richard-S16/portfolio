@@ -8,7 +8,7 @@ export function Experience({ locale }: { locale: Locale }) {
   const { experience: c } = getDictionary(locale);
   return (
     <div className="experience-band">
-      <Section id="experience" title={c.title} intro={c.intro}>
+      <Section id="experience" title={c.title}>
         <div className="career">
           <h3>{c.tenure}</h3>
           <ol className="timeline">

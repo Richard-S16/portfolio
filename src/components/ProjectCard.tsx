@@ -15,20 +15,22 @@ export function ProjectCard({
   const d = getDictionary(locale);
   const c = d.projects[project.slug];
   const href = localePath(locale, `/work/${project.slug}`);
+  const cardHref = "liveUrl" in project ? project.liveUrl : href;
   return (
     <article className={`project-card project-${project.field}`}>
       <Link
-        href={href}
+        href={cardHref}
         className="preview-link"
       >
         <ProjectPreview
           field={project.field}
           image={{ ...project.image, alt: c.imageAlt }}
+          sizes="(max-width: 720px) calc(100vw - 40px), (max-width: 1352px) 50vw, 598px"
         />
       </Link>
       <div className="project-info">
         <h3>
-          <Link href={href}>
+          <Link href={cardHref}>
             {project.name}
             <Arrow diagonal />
           </Link>

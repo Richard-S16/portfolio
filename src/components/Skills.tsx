@@ -7,7 +7,7 @@ import { Arrow } from "./Arrow";
 export function Skills({ locale }: { locale: Locale }) {
   const c = getDictionary(locale).expertise;
   return (
-    <Section id="expertise" title={c.title} intro={c.intro}>
+    <Section id="expertise" title={c.title}>
       <div className="expertise-grid">
         {c.items.map((item) => (
           <article key={item.slug}>

@@ -8,7 +8,7 @@ import { Arrow } from "./Arrow";
 export function FeaturedWork({ locale }: { locale: Locale }) {
   const { work } = getDictionary(locale);
   return (
-    <Section id="work" title={work.title} intro={work.intro}>
+    <Section id="work" title={work.title}>
       <div className="projects-grid">
         {projects.map((project) => (
           <ProjectCard key={project.slug} project={project} locale={locale} />

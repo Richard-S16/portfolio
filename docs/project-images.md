@@ -5,7 +5,7 @@ Nine real screenshots supplied by the owner were integrated on November 5, 2026.
 | Public asset (`public/projects/`) | Source and treatment |
 | --- | --- |
 | `core-web-vitals-playground.webp` | Supplied public-project homepage |
-| `archlens.webp` | Supplied public-project homepage; no upscaling |
+| `archlens-home.webp` | Supplied public-project homepage; no upscaling |
 | `tanstack-query-control-room.webp` | Supplied public-project workspace |
 | `vision-lab.webp` | Supplied interactive 3D detection scene |
 | `skillmatrix-f89e857e.webp` | Replacement workspace, not the superseded login screen; uncensored as requested |

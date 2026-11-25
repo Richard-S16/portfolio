@@ -1,13 +1,11 @@
 export function Section({
   id,
   title,
-  intro,
   children,
   className = "",
 }: {
   id: string;
   title: string;
-  intro?: string;
   children: React.ReactNode;
   className?: string;
 }) {
@@ -17,10 +15,7 @@ export function Section({
       className={`section wrap ${className}`}
       aria-labelledby={`${id}-title`}
     >
-      <div className="section-heading">
-        <h2 id={`${id}-title`}>{title}</h2>
-        {intro ? <p>{intro}</p> : null}
-      </div>
+      <h2 className="section-heading" id={`${id}-title`}>{title}</h2>
       {children}
     </section>
   );

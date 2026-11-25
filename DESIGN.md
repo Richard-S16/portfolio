@@ -45,10 +45,15 @@ colors:
 typography:
   display:
     fontFamily: "Manrope, sans-serif"
-    fontSize: "clamp(46px, 5.9vw, 82px)"
-    fontWeight: 500
-    lineHeight: 1.08
+    fontSize: "clamp(44px, 5.4vw, 78px)"
+    fontWeight: 750
+    lineHeight: 1.04
     letterSpacing: "-0.04em"
+  hero-role:
+    fontFamily: "Manrope, sans-serif"
+    fontSize: "clamp(18px, 2vw, 24px)"
+    fontWeight: 650
+    lineHeight: 1.3
   headline:
     fontFamily: "Manrope, sans-serif"
     fontSize: "clamp(30px, 3.6vw, 46px)"
@@ -149,7 +154,7 @@ components:
 
 **Creative North Star: "Engineering Index"**
 
-A confident, minimalist editorial system makes engineering work easy to scan. Large open letterforms, generous margins, crisp rules and asymmetric project panels give the portfolio its identity. Black, white and purposeful red are personal brand commitments, not a borrowed corporate identity.
+A confident, minimalist editorial system makes engineering work easy to scan. Large open letterforms, generous margins, crisp rules and consistently sized project panels give the portfolio its identity. Black, white and purposeful red are personal brand commitments, not a borrowed corporate identity.
 
 The interface stays flat and readable; interaction adds only a small directional cue. Public project evidence and professional experience remain visually distinct. The same system serves English and Brazilian Portuguese without shortening either language to fit the composition.
 
@@ -157,7 +162,7 @@ The interface stays flat and readable; interaction adds only a small directional
 
 - Open Manrope typography with tightly tracked headings.
 - Neutral surfaces, purposeful red accents and a solid red contact band.
-- Asymmetric desktop project grid and linear mobile reading order.
+- Equal-width desktop project grids and linear mobile reading order.
 - Real owner-authorized, uncensored project screenshots; never simulated product imagery.
 - Native navigation semantics, visible focus and reduced-motion support.
 
@@ -167,7 +172,7 @@ This is a scan-mode record of `src/app/globals.css` and the built components, in
 
 ### Primary
 
-Personal-brand red (`primary`, mapped to CSS `--accent`) marks the hero emphasis, primary work action, availability dot and focus outline. Its hover companion is `accent-hover`; `on-accent` supplies legible text. Dark mode uses the corresponding `dark-accent`, `dark-accent-hover` and `dark-on-accent` tokens rather than reusing light-mode red.
+Personal-brand red (`primary`, mapped to CSS `--accent`) marks the hero role, primary work action, availability dot and focus outline. Its hover companion is `accent-hover`; `on-accent` supplies legible text. Dark mode uses the corresponding `dark-accent`, `dark-accent-hover` and `dark-on-accent` tokens rather than reusing light-mode red.
 
 The contact band has its own stable red and pale supporting colors (`contact`, `contact-copy`, `contact-button-ink`, `contact-rule`, `contact-button-hover`). It retains these assignments in both themes. Its heading and button background use white (`on-accent`), not the dark theme's `dark-on-accent`.
 
@@ -187,7 +192,7 @@ Selection uses the active accent and on-accent pair. Scrollbars use muted agains
 
 ### Hierarchy
 
-- **Display:** The `display` token is the default hero heading; its second line uses the accent. At widths up to 1100px it becomes `clamp(44px, 5.8vw, 70px)`; up to 720px, `clamp(38px, 7.9vw, 56px)` with line-height 1.12; up to 360px, 35px.
+- **Display:** The `display` token sets Richard’s name. The separate `hero-role` line uses the accent. At widths up to 720px the heading becomes `clamp(38px, 7.9vw, 56px)` with line-height 1.12; up to 360px, 35px.
 - **Headline:** The `headline` token defines section headings. Contact headings instead use `clamp(34px, 4vw, 54px)`, line-height 1.15, then 37px at 720px and 32px at 360px.
 - **Title:** The base `title` token describes h3. Project titles are 22px on desktop and 21px on mobile. Base h4 is 18px, weight 600, line-height 1.2, tracking -0.02em; component overrides provide smaller career/project titles.
 - **Body:** The `body` token is the page default. Project descriptions are 14px, then 13px on mobile. Hero introduction uses `intro`, max-width 590px; on mobile it becomes 14px with line-height 1.9. About prose is 15px/1.95, then 14px on mobile.
@@ -195,16 +200,16 @@ Selection uses the active accent and on-accent pair. Scrollbars use muted agains
 - **Preview:** The `preview` token describes the centered placeholder name, max-width 400px; mobile uses 34px. Note tracking is 0.03em, with opacity 0.85; captions have opacity 0.8.
 - **Case study:** Heading size is `clamp(40px, 5.5vw, 76px)`, max-width 900px; mobile uses 41px. Intro is 20px, max-width 720px, then 17px on mobile. Section headings are 28px, then 26px; body is 14px/1.9 with max-width 72ch. The status copy permits 90ch.
 
-Headings are balanced (`text-wrap: balance`), default to weight 600, and start with zero margins. h1/h2 have negative tracking; the hero intentionally uses the lighter weight in `display`. The wordmark is 38px/800 with tracking -0.08em, reduced to 31px on mobile.
+Headings are balanced (`text-wrap: balance`), default to weight 600, and start with zero margins. h1/h2 have negative tracking; the hero name uses the heavier `display` weight and wraps naturally. The wordmark is 38px/800 with tracking -0.08em, reduced to 31px on mobile.
 
 ## Layout
 
 The centered wrapper is `min(1240px, calc(100% - 112px))`. It becomes `calc(100% - 72px)` at 1100px and `calc(100% - 40px)` at 720px. This creates desktop side margins of at least 56px, tablet margins of 36px and mobile margins of 20px. Spacing is contextual, not a strict mathematical scale; frontmatter lists recurring observed values only.
 
 - **Header:** 104px minimum height, bottom rule, horizontally distributed wordmark/navigation/tools. Mobile minimum height is 80px with wrapping enabled. The header is not sticky.
-- **Hero:** Main column plus a 230px index, gap 64px, padding-block 80px. At 1550px and above, vertical padding becomes 96px. At 1100px and below the index is 200px, gap 32px, padding 64px. Mobile stacks the main content and index with gap 40px and padding 40px 32px; the index itself remains two columns. The headline states the frontend/performance focus; tenure stays in the supporting paragraph, not the headline.
+- **Hero:** One left-aligned column for the name, role, introduction and actions. Vertical padding is 80px, 96px from 1550px, 64px at widths up to 1100px, and 40px top and 32px bottom on mobile. Location, availability and resume sit in the utility row below. Project imagery begins in Selected Work.
 - **Sections:** Default vertical padding uses `section`, reduced to `mobile-section` at 720px. Section headings use two equal columns, gap 60px, bottom margin 40px; mobile uses one column, gap 16px and bottom margin 28px. Repeated spacing follows a 4px rhythm; optical sizing and icon geometry remain separate.
-- **Selected work:** Twelve columns with gap 64px 32px. Cards one and four span seven columns; the others span five. Mobile becomes a single flex column with gap 40px. Preview heights are 336px, 280px at 1100px, and 260px at 720px; padding changes from 40px to 32px on mobile.
+- **Selected work:** Two equal columns with a 44px column gap and full-width 16:9 preview frames, matching Lenovo Projects. The row gap is 64px. Mobile uses one column with a 40px row gap.
 - **Experience:** Career uses 1:2 columns, gap 60px; at 1100px it uses 1:3 and gap 32px. Timeline rows have a 220px label column (190px at 1100px). Mobile stacks career and timeline. Professional projects form two columns with gap 44px, then one column on mobile. Full-width 16:9 screenshots sit above each summary with gap 24px, then 16px on mobile.
 - **Expertise:** Three equal columns, gap 44px (28px at 1100px); one column at 720px.
 - **About and contact:** 1.2:1 columns with gap 120px, reduced to 60px at 1100px. Mobile stacks these with gaps 36px and 40px respectively. Contact padding is 80px vertically, then 56px on mobile.
@@ -239,13 +244,13 @@ The theme toggle is a native button with an accessible label and title plus a de
 
 ### Project cards and screenshots
 
-Each project is an article with a linked preview, a separately linked title, description, plain-text stack and separate case-study/repository actions. Do not make the entire article a nested-link click target. Real WebP screenshots use `next/image`, explicit dimensions and bilingual alt text. Cards contain the complete image against a dark matte in the existing fixed-height panels; case studies show the full image at intrinsic height. No generated imagery is used.
+Each project is an article with a linked preview, a separately linked title, description, plain-text stack and separate case-study/repository actions. Preview and title links open the live app when available; otherwise they open the case study. Do not make the entire article a nested-link click target. Real WebP screenshots use `next/image`, explicit dimensions and bilingual alt text. Cards contain the complete image against a dark matte in 16:9 panels; case studies keep the original proportions. No generated imagery is used.
 
 Professional screenshots are owner-authorized, uncensored images in full-width 16:9 panels above their summaries, contained without distortion. The grid has two desktop columns and one mobile column. They have localized descriptive alt text and never link to internal case studies. See `docs/project-images.md` for publication approval. The former placeholder colors remain legacy palette tokens, not permission to invent product UI.
 
 ### Motion and affordances
 
-Hover styling is restricted to `(hover: hover) and (pointer: fine)`: navigation and ordinary text links become accent; the primary action changes to accent-hover; the contact action changes to contact-button-hover; the theme button gains surface fill; the resume border becomes foreground; contact links underline. Linked previews lift; index/title/text/next-project arrows move `translate(3px, -2px)` where implemented.
+Hover styling is restricted to `(hover: hover) and (pointer: fine)`: navigation and ordinary text links become accent; the primary action changes to accent-hover; the contact action changes to contact-button-hover; the theme button gains surface fill; the resume border becomes foreground; contact links underline. Linked project previews lift; title/text/next-project arrows move `translate(3px, -2px)` where implemented.
 
 Buttons transition background-color and transform over 160ms ease; the theme toggle transitions background-color over 160ms ease. Arrows use 180ms `cubic-bezier(0.2, 0.8, 0.2, 1)`; previews use 240ms with that same curve. Focus is immediate. Under `prefers-reduced-motion: reduce`, animations and transitions are disabled for all elements and pseudo-elements and scroll behavior becomes auto. There is no animation dependency or smooth-scroll behavior to preserve.
 
@@ -257,7 +262,7 @@ Buttons transition background-color and transform over 160ms ease; the theme tog
 - **Do** keep native anchors, buttons and disclosures, visible focus, and reduced-motion behavior.
 - **Do** preserve full English and Brazilian Portuguese content in their separate root layouts.
 - **Do** use owner-cleared screenshots with localized alt text and preserved proportions; retain the explicitly approved uncensored content.
-- **Do** preserve the asymmetric desktop grid and stacked mobile reading order.
+- **Do** preserve the equal-width desktop grid and stacked mobile reading order.
 
 ### Don't:
 

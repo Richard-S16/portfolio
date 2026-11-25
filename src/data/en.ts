@@ -25,19 +25,15 @@ export interface Dictionary {
     theme: string;
   };
   hero: {
-    title: string;
-    emphasis: string;
     intro: string;
     location: string;
     availability: string;
     work: string;
     contact: string;
-    index: string;
     role: string;
   };
   work: {
     title: string;
-    intro: string;
     caseStudy: string;
     repository: string;
     progress: string;
@@ -45,7 +41,6 @@ export interface Dictionary {
   };
   experience: {
     title: string;
-    intro: string;
     tenure: string;
     roleTitles: [string, string, string];
     roles: string[];
@@ -57,7 +52,6 @@ export interface Dictionary {
   };
   expertise: {
     title: string;
-    intro: string;
     items: {
       title: string;
       text: string;
@@ -117,21 +111,16 @@ export const en: Dictionary = {
     theme: "Switch color theme",
   },
   hero: {
-    title: "Frontend engineering",
-    emphasis: "Built for performance",
     intro:
-      "I’m Richard Schmidt, a software engineer with 5+ years at Lenovo R&D. My work focuses on frontend performance, application architecture, and legacy modernization for global markets.",
+      "I build and modernize web applications at Lenovo R&D, with a focus on performance and frontend architecture.",
     location: "Indaiatuba, Brazil",
     availability: "Open to relocation",
     work: "Explore my work",
     contact: "Let’s talk",
-    index: "Areas I work in",
-    role: "Software Engineer · React / Next.js / TypeScript",
+    role: "Frontend software engineer",
   },
   work: {
     title: "Selected work",
-    intro:
-      "Personal projects that turn engineering questions into something you can explore.",
     caseStudy: "Read case study",
     repository: "View source on GitHub",
     progress: "In progress",
@@ -140,8 +129,6 @@ export const en: Dictionary = {
   },
   experience: {
     title: "Engineering at Lenovo R&D",
-    intro:
-      "Five years of growing responsibility at Lenovo R&D, building and maintaining applications for North America, LATAM, EMEA, and APAC.",
     tenure: "Lenovo R&D · Since July 2021",
     roleTitles: [
       "Software Engineer II",
@@ -178,8 +165,6 @@ export const en: Dictionary = {
   },
   expertise: {
     title: "Frontend, performance & architecture",
-    intro:
-      "A frontend focus, with the architectural context to connect the whole experience.",
     items: [
       {
         title: "Frontend engineering",
